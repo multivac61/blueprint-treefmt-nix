@@ -37,7 +37,7 @@ let
 in
 formatter
 // {
-  meta = formatter.meta // {
+  passthru = formatter.passthru // {
     tests = {
       check = check;
     };
