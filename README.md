@@ -1,3 +1,37 @@
+# Update
+
+I managed to get all examples working by changing
+
+```console
+formatter
+// {
+  meta = formatter.meta // {
+    tests = {
+      check = check;
+    };
+  };
+}
+```
+
+
+to 
+
+```console
+formatter
+// {
+  passthru = formatter.passthru // {
+    tests = {
+      check = check;
+    };
+  };
+}
+```
+
+
+There must have been a change made to blueprint from `meta` to `passthru`.
+
+---
+
 This is an example repo documenting my attempts to get checks from `treefmt-nix` into `nix flake check`. So far I have been unsuccessful integrating it into the `formatter.nix` file blueprint uses by default for formatters. 
 
 I deliberately left couple of formatting issues in `flake.nix` and some deadnix code. Expected behaviour is for the [garnix CI](https://garnix.io) **not to pass** (see pull-requests).
