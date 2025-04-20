@@ -11,7 +11,7 @@ let
 in
 formatter
 // {
-  meta = formatter.meta // {
+  passthru = formatter.passthru // {
     tests = {
       check = treefmtEval.config.build.check flake; # Check the whole repo
     };
