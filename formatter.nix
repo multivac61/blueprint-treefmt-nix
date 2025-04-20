@@ -1,7 +1,6 @@
 {
   flake,
   inputs,
-  pname,
   pkgs,
   ...
 }:
@@ -17,9 +16,6 @@ let
           formatter
           pkgs.git
         ];
-
-        # only check on Linux
-        meta.platforms = pkgs.lib.platforms.linux;
       }
       ''
         export HOME=$NIX_BUILD_TOP/home
@@ -30,7 +26,7 @@ let
         git init --quiet
         git add .
         shopt -s globstar
-        ${pname} **/*.nix
+        treefmt --no-cache
         if ! git diff --exit-code; then
           echo "-------------------------------"
           echo "aborting due to above changes ^"
